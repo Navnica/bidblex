@@ -1,0 +1,26 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+{% endblock %}
+
+{% block title %} {{ product.name }} {% endblock %}
+
+{% block content %}
+    <div class="product-card">
+        <div class="product-images">
+            <ul>
+                {% for img in product.images.all %}
+                    <li>
+                        <img src="{{ img.image }}" alt="">
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="product-image-selected">now photo</div>
+        <div class="product-description">discription</div>
+    </div>
+
+
+{% endblock %}

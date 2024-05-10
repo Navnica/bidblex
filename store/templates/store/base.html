@@ -1,0 +1,35 @@
+{% load static %}
+<html lang="ru">
+    <head>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        {% block links %}
+        {% endblock %}
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+        <nav>
+            <a class="title" href="{% url 'index' %}">Bidblex</a>
+            <span class="site-menu">
+                <a href="#">
+                    <span class="label">Личный кабинет</span>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB+0lEQVR4nO2Zu0oDQRSGB8VbYxGU7P9PIE2wiIVFfAoFL6DYWvkKWolaeOn0Fbw9hWhjb+fdwkobEY2XRrJycAURNcE5mYmyPxxYMrPZ/9s9c/bsrjGpUqVSU6lUarHWjpPcBnBM8kEi2d6SMZljGlEARgGckYx/CpkDYMQ0kJpIrlQz/kUsyb6hzZtfmv8IETZtHMy/p9RwEPOyGGvJ+RriolgstnoHSKpNrBHW2jHvAFIqtQBIbnoHAHCqBQDg2DsAybLiFSj/dYA77wAAThQBjrwDSG+jCLDuHeDPl9HS243MuRIBOAnWoUpX6QhQITlkQorksgPAommQdnrpF2dezIdvp98lXWUtayKZEzZtqjxSjklvI7U9udlJHJLckLGGfaRMleo/K5fLdQCYB3BO8kWxB4o/xYscA8CcHFPNPMn9OpqOv4n9fD7f7gwgZz6A+TiJWQ2A81AAAE6dAeqc83G1NaEBUAkIUHEGAHAbMIVuNAB2AwLsaABMBUyhCWeAQqHQFqIS4e1lV7PRUDab7ZV3Nx4BytbaPqMpa+0ggCcP5h+ttQOq5j9A9NU5nS6jKOo39VQmk+kEsEDyXtH4vbQs8t/Gl6Io6gYwA+DAYaEeAJgG0GVCimQPyUmSawD2ks+q1wCeJUheyW8yRnI1mdsT1HSqVP9Er+562zDStuPrAAAAAElFTkSuQmCC" alt="">
+                </a>
+                <a href="#">
+                    <span class="label">Товары</span>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABKklEQVR4nO3WvUrEQBQF4ClstNUk95ybBMRHsLKysHERbAVhfQIba30A8SUEK99gey22s7MXtVawWPB3ZSALYmFmnMm4sB6Ybrgf5yaQGDOTIXlJctycG5I7fwGPSb5WVbWSBJ+E5FmDH5mUIbltYQDDpDCABQAjku95nhdJcZID21pV95LCAPa/vWyxzsWPcFEUy13AAO5bW5O87gA+dVn3SQfwbissIuuR4Y8sy6QVNsbMAXiM2PbKBZ2s+zxi42NnWET6EeENn8ZLJN8irHlUluW8M9zgwwhtB8Y3JA9DYVU98IbrugbJp4A1P5Bc9Iab1mt25QBePMBn+4MBYPVX6OxGVbfs1wXAnYj0Qu85xw768vxuQ+9NPywiPTvUDhORzdB7/zGp8gmEPX/3TRtVrgAAAABJRU5ErkJggg==" alt="">
+                </a>
+                <a href="#">
+                    <span class="label">О нас</span>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADNElEQVR4nO2aO2gUURSGbzQqglhs2Mz9/zsuKFvoxkKIIAYtRLQxXRAEwWCjEUwKCy0sDMEHWFpIoogPLBQ0IrYWiRaKKIoivlASC00EFXwE0eDKWS9kNs/d2bmZHfHAD1PNOd8999y3Uv9tzHK53HySa0nuA3CO5C0AbwF8IvlLZL8HSPYBOAOgQ2u9WilVq+IOXmvdAuASya8k82EE4DPJCySblVJzZw3A9/0UgE6S78MGP40GAOxPp9OLnAFks9kFAA7YFsw71hDJPZFnyBizhuTTWQDIj+t2d7XWKyKBkAImOTrbEByDGQGwvRKGWgBn4wLgRB1VStWURdDY2DiP5JUqCD4/Ljvd5cDUkLwYd9CcGuZwSRQkD8YdLKfX7xlrhmRTnIXN0vXN9/3spBC+7y8E8Cpih8Mk71sNR/zvvknrRWZUBy3XFsh2W9T/11q3FEGkUqnFdlEXtaPdgYbaFfX/ATxXSs0JZmOvg2zk7TKjYALlwocxZkuwyJ84AgnWyAcXPgBcL0DU19cvcwQxKwLwo7BaBtAedzARqFlAzldBIJVmpVPZ/uvKQbd0XRGALocwV5XdxLhrKYfDL8d0TxyMJB0EwAtx8DPpICQHlYsZPYaMPBYHL5MOQrJfHNz4B0B6ZNQ6knQQAO0CsjHpIJ7nNRQO3kh+STDIQHD125NUEABdQZBVsqlPIMgoySVFu0SSvQkEOV0EYXdwuahneccg333fNxNAbFYORexs0Naf6EHEjdShpjsqBXDHQReIVABuFh06TGbpdFrLtVncwXJqvdFap1Up5nneSgcHalFoCMDykiACMA0APlZRd3oX6tInk8nA5aarTIiHnuctVWEMwMm4Afh3kj4l59KhIIwxW13M9GXqNYDNoQBsJjbJsX3MBd0h9/ihIUhuk5O7OLqQzF/GmB2yGg8NIJOL3WBV2p3KuSSS4f2atD6AjIroHUlvhQC35TpMWlNGO2PMBpI7ZedmHxkcsCf+rQDWT7lGqsQAHA8ZvDyQOVbYnVWDkewvI/hnJE8AWFf2nbdrI9kE4LIsi4NBS9EDeGRf7rQaY3yVFCNZZ+9L6mZcXVaZ/QFVHC36AqunGgAAAABJRU5ErkJggg==" alt="">
+                </a>
+            </span>
+        </nav>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

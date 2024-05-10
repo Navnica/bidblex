@@ -1,0 +1,32 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block title %} Главная {% endblock %}
+
+{% block content %}
+    <div class="title">
+        Доступные товары
+    </div>
+    <div class="product-list">
+        {% for product in products %}
+            <a class="product" href="{% url 'product' pk=product.pk %}">
+                {% with product.images.first as first_image %}
+                    {% if first_image %}
+                        <img src="{{ first_image.image }}" alt="Product Image">
+                    {% endif %}
+                {% endwith %}
+                <div class="product-price">
+                    {{ product.price }}$
+                </div>
+                <div class="product-name">
+                    {{ product.name }}
+                </div>
+
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
