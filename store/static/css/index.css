@@ -1,62 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-div.title{
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #e0f3ff, #ffffff);
+    margin: 0;
+    padding: 0;
+}
+
+div.title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 div.product-list {
-    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
+    justify-content: center;
 }
 
-div.product-list a.product{
-    background-color: whitesmoke;
+div.product-list a.product {
+    background-color: #fff;
+    color: #333;
     user-select: none;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    transition: filter 0.3s ease;
-    color: black;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
-    min-width: 250px;
-    max-width: 250px;
-    min-height: 250px;
-    max-height: 250px;
+    width: 250px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* увеличена тень */
 }
 
-div.product-list a.product:hover{
-    filter: brightness(0.7);
+div.product-list a.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* увеличена тень при наведении */
 }
 
-div.product-list a.product img{
-    min-height: 100%;
-    max-width: 100%;
-    height: 200px;
-    width: 200px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    border-radius: 10px;
+div.product-list a.product img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s ease; /* добавлен плавный переход для изображения */
 }
 
-a.product div.product-price{
+div.product-list a.product:hover img {
+    transform: scale(1.1); /* увеличение изображения при наведении */
+}
+
+a.product div.product-price {
     margin-top: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: left;
+    font-size: 18px;
+    font-weight: 500;
+    color: #666; /* изменен цвет текста цены */
 }
 
-a.product div.product-name{
-    width: 100%;
-    display: flex;
-    justify-content: left;
+a.product div.product-name {
+    margin-top: 5px;
+    font-size: 16px;
+    text-align: center;
+    color: #444; /* изменен цвет текста имени продукта */
 }
