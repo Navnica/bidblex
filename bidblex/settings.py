@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-fiq(3i@teb@-fc9c1-^_f6x@w=_2r6qb+5r4d6*0ynus=#8fpu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['download.jetbrains.com', '127.0.0.1']
+ALLOWED_HOSTS = ['download.jetbrains.com', '127.0.0.1', 'localhost']
 
 
 # Application definition

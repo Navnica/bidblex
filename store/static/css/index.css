@@ -2,9 +2,6 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to bottom, #e0f3ff, #ffffff);
-    margin: 0;
-    padding: 0;
 }
 
 div.title {
