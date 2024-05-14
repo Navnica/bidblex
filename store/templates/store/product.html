@@ -9,49 +9,58 @@
 {% block title %} {{ product.name }} {% endblock %}
 
 {% block content %}
+
     <div class="product-card">
-        <div class="product-images">
-            <ul>
-                {% for img in product.images.all %}
-                    <li>
-                        <img src="{{ img.image }}" alt="">
-                    </li>
-                {% endfor %}
-            </ul>
+        <div class="first-level-block">
+            <div class="image-block">
+                <div class="selected-image">
+                    <img src="{{ product.images.image }}" alt="">
+                </div>
+                <div class="image-list">
+                    <ul>
+                        {% for img in product.images.all %}
+                            <li>
+                                <img src="{{ img.image }}" alt="">
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="product-data">
+                <div class="name">
+                    <label class="title">Производитель</label>
+                    <div class="text-block">
+                        {{ product.contact_data.name }}
+                    </div>
+
+                </div>
+                <div class="description">
+                    <label class="title">Описание</label>
+                    <div class="text-block">
+                        {{ product.description }}
+                    </div>
+                </div>
+                <div class="certificate">
+                    <label class="title">Документация</label>
+                    <div class="text-block">
+                        <img src="{{ product.certificate_url }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="contact-data">
+                <div>
+                    <label>Имя: </label> {{ product.contact_data.name }}
+                </div>
+                <div>
+                    <label>Номер телефона: </label> {{ product.contact_data.phone }}
+                </div>
+                <div>
+                    <label>E-Mail: </label> {{ product.contact_data.email }}
+                </div>
+            </div>
         </div>
-        <div class="product-image-selected">
-            <img src="" alt="">
-        </div>
-        <div class="product-description">
-            <div class="description-block">
-                Описание
-                <div class="text">
-                    {{ product.description }}
-                </div>
-            </div>
-            <div class="price-block">
-                Цена
-                <div class="default-price">
-                    {{ product.price }} ₽
-                </div>
-                <div class="price-offer">
-                    <label>Предложить цену:</label>
-                    <button id="prev-button">-</button>
-                    <input type="number" id="price-input" name="price-input" value="{{ product.price|add:100 }}">
-                    <button id="next-button">+</button>
-                </div>
-                <button id="offer">Предложить</button>
-            </div>
-            <div class="contact-data-block">
-                Контактные данные
-                <div class="contact-data">
-                    <p>Имя: {{ product.contact_data.name }}</p>
-                    <p>Номер: {{ product.contact_data.phone }}</p>
-                    <p>E-Mail:
-                        <a href="mailto:{{ product.contact_data.email }}">{{ product.contact_data.email }}</a>
-                    </p>
-                </div>
-            </div>
+        <div class="two-level-block">
+
         </div>
     </div>
 

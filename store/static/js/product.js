@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const productImages = document.querySelectorAll('.product-card ul li img');
-    const selectedImageContainer = document.querySelector(".product-image-selected img")
+    const productImages = document.querySelectorAll('.image-list ul li img');
+    const selectedImageContainer = document.querySelector(".selected-image img")
     const priceInput = document.getElementById("price-input");
     const prevButton = document.getElementById("prev-button");
     const nextButton = document.getElementById("next-button");
     const offerButton = document.getElementById("offer")
-
 
     productImages[0].classList.add('selected')
     selectedImageContainer.src = productImages[0].src
