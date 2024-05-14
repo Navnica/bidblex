@@ -12,9 +12,14 @@ def product(request, pk):
     return render(request, 'store/product.html', {'product': get_object_or_404(Product, pk=pk)})
 
 
-def img(request, filename, pk):
+def img(request, filename):
     return FileResponse(open(f'store/static/img/{filename}', 'rb'))
+
+
+def docs(request, filename):
+    return FileResponse(open(f'store/static/docs/{filename}', 'rb'))
 
 
 def login(request):
     return render(request, 'store/login.html')
+

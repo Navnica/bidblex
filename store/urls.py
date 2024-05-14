@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('product/<int:pk>/', views.product, name='product'),
-    path('product/<int:pk>/store/static/img/<str:filename>', views.img, name='img'),
+    path('store/static/img/<str:filename>/', views.img, name='img'),
+    path('store/static/docs/<str:filename>/', views.docs, name='docs'),
     path('login/', views.login, name='login')
 ]

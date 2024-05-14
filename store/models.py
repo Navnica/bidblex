@@ -12,7 +12,7 @@ class Product(models.Model):
     price = models.FloatField()
     description = models.TextField()
     contact_data = models.ForeignKey(ContactData, on_delete=models.CASCADE, related_name='products')
-    certificate_url = models.CharField(max_length=1000)
+    certificate = models.FileField(upload_to='store/static/docs')
 
     def __str__(self):
         return self.name
