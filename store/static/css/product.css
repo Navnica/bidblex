@@ -136,7 +136,32 @@ div.image-block, .contact-data{
     flex-direction: column;
 }
 
-.certificate img {
-    max-width: 100%;
-    max-height: 100%;
+.doc-list{
+    display: flex;
+    width: 100%;
+}
+
+.doc-list ul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.doc-list ul a{
+    margin-top: 10px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    text-decoration: none;
+    color: black;
+    transition: filter 0.3s ease, scale 0.3s ease;
+}
+
+.doc-list ul a:hover{
+    filter: brightness(70%);
+    scale: 105%;
 }

@@ -42,8 +42,15 @@
                 </div>
                 <div class="certificate">
                     <label class="title">Документация</label>
-                    <div class="text-block">
-                        <a style="text-decoration: none" href="{{ product.certificate.url }}">PDF</a>
+                    <div class="doc-list">
+                        <ul>
+                            {% for doc in product.docs.all %}
+                                <a href="{{ doc.file.url }}">
+                                        {{ doc.name }}
+                                </a>
+                            {% endfor %}
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
