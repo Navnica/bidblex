@@ -1,7 +1,3 @@
-body {
-    background: linear-gradient(to bottom, #e0f3ff, #ffffff);
-}
-
 div.product-card {
     display: flex;
     justify-content: center;
