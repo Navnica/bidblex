@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const productImages = document.querySelectorAll('.image-list ul li img');
     const selectedImageContainer = document.querySelector(".selected-image img")
-    const priceInput = document.getElementById("price-input");
-    const prevButton = document.getElementById("prev-button");
-    const nextButton = document.getElementById("next-button");
-    const offerButton = document.getElementById("offer")
+    const priceInput = document.getElementById("price-input")
+    const priceOfferButtons = document.querySelectorAll('.price-offer-button');
+    const offerButton = document.getElementById("offer-button")
 
     productImages[0].classList.add('selected')
     selectedImageContainer.src = productImages[0].src
@@ -20,36 +19,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    offerButton.addEventListener("click", function (){handleButtonPress(offerButton)})
+
     priceInput.addEventListener("input", function () {
         if(priceInput.value < 1){
             priceInput.value = 1
         }
     })
 
-    prevButton.addEventListener("click", function() {
-        if(priceInput.value - 100 < 1){
-            priceInput.value = 1
+    priceOfferButtons.forEach(function (button){
+        button.addEventListener("click", function () {handleButtonPress(button)})
+
+        if(button.value === "+"){
+            button.addEventListener("click", function (){
+                priceInput.value = parseFloat(priceInput.value) + 100
+            })
         }
-        else{
-            priceInput.value = parseInt(priceInput.value) - 100
+        else if(button.value === "-"){
+            button.addEventListener("click", function (){
+                priceInput.value = parseFloat(priceInput.value) - 100
+                if(parseFloat(priceInput.value) - 100 < 1){
+                    priceInput.value = 1
+                }
+            })
         }
-
-    });
-
-    nextButton.addEventListener("click", function() {
-        priceInput.value = parseInt(priceInput.value) + 100;
-    });
-
-    prevButton.addEventListener("click", function (){
-        handleButtonPress(prevButton)
-    })
-
-    nextButton.addEventListener("click", function (){
-        handleButtonPress(nextButton)
-    })
-
-    offerButton.addEventListener("click", function (){
-        handleButtonPress(offerButton)
     })
 
     function handleButtonPress(button) {

@@ -55,14 +55,17 @@
                 </div>
             </div>
             <div class="contact-data">
-                <div>
-                    <label>Имя: </label> {{ product.contact_data.name }}
-                </div>
-                <div>
-                    <label>Номер телефона: </label> {{ product.contact_data.phone }}
-                </div>
-                <div>
-                    <label>E-Mail: </label> {{ product.contact_data.email }}
+                <div class="price-block">
+                    <label class="title">Цена</label>
+                    <div class="price">
+                        {{ product.price }} ₽
+                    </div>
+                    <div class="price-offer">
+                        <input class="price-offer-button" type="button" value="-">
+                        <input id="price-input" type="number" value="{{ product.price|floatformat }}">
+                        <input class="price-offer-button" type="button" value="+">
+                    </div>
+                    <button id="offer-button">Предложить свою</button>
                 </div>
             </div>
         </div>
