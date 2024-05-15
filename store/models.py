@@ -27,3 +27,17 @@ class ProductDoc(models.Model):
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to='store/static/img/')
+
+
+class Storage(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=1000)
+
+    def __str__(self):
+        return self.name
+
+
+class ProductStorage(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='storages')
+    storage = models.ForeignKey(Storage, on_delete=models.CASCADE, related_name='products')
+    count = models.IntegerField(default=0)

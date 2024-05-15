@@ -27,20 +27,20 @@
                 </div>
             </div>
             <div class="product-data">
-                <div class="name">
+                <div class="product-data-block">
                     <label class="title">Производитель</label>
                     <div class="text-block">
                         {{ product.contact_data.name }}
                     </div>
 
                 </div>
-                <div class="description">
+                <div class="product-data-block">
                     <label class="title">Описание</label>
                     <div class="text-block">
                         {{ product.description }}
                     </div>
                 </div>
-                <div class="certificate">
+                <div class="product-data-block">
                     <label class="title">Документация</label>
                     <div class="doc-list">
                         <ul>
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="contact-data">
-                <div class="price-block">
+                <div class="contact-data-block">
                     <label class="title">Цена</label>
                     <div class="price">
                         {{ product.price }} ₽
@@ -66,6 +66,20 @@
                         <input class="price-offer-button" type="button" value="+">
                     </div>
                     <button id="offer-button">Предложить свою</button>
+                </div>
+                <div class="contact-data-block">
+                    <label class="title">Склады</label>
+                    <div id="storages-block">
+                        <ul>
+                            {% for product_storage in product.storages.all %}
+                                <div class="storage-info">
+                                    <label>{{ product_storage.storage.name }}</label>
+                                    <label>{{ product_storage.storage.address }}</label>
+                                    <label>Товаров на складе: {{ product_storage.count }}</label>
+                                </div>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

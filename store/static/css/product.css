@@ -100,10 +100,6 @@ div.image-block, .contact-data{
     margin-left: 50px;
 }
 
-.description{
-    width: 100%;
-}
-
 .title{
     color: gray;
     text-align: left;
@@ -114,7 +110,7 @@ div.image-block, .contact-data{
     margin-top: 10px;
 }
 
-.name, .description, .certificate, .price-block{
+.product-data-block, .contact-data-block{
     box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
     background: white;
     border-radius: 15px;
@@ -126,14 +122,7 @@ div.image-block, .contact-data{
 .contact-data{
     justify-content: start;
     align-items: center;
-    min-width: 100px;
-}
-
-.certificate {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    min-width: 300px;
 }
 
 .doc-list{
@@ -158,17 +147,16 @@ div.image-block, .contact-data{
     background-color: cornflowerblue;
     text-decoration: none;
     color: white;
-    transition: filter 0.3s ease, scale 0.3s ease;
+    transition: scale 0.3s ease, box-shadow 0.3s ease;
 }
 
 .doc-list ul a:hover{
-    filter: brightness(70%);
     scale: 103%;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
-.price-block{
+.contact-data-block{
     width: 100%;
-    margin: 0;
     padding: 10px;
     justify-content: center;
     align-items: center;
@@ -176,9 +164,10 @@ div.image-block, .contact-data{
     flex-direction: column;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
     transition: scale 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
 }
 
-.price-block:hover{
+.contact-data-block:hover{
     scale: 101%;
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
 }
@@ -190,7 +179,12 @@ div.image-block, .contact-data{
     display: flex;
 }
 
-#price-input, .price-offer-button, .price-block button{
+.price{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#price-input, .price-offer-button, .contact-data-block button{
     background-color: cornflowerblue;
     border: none;
     color: white;
@@ -214,11 +208,56 @@ div.image-block, .contact-data{
     height: 30px;
 }
 
-.price-block button{
+.contact-data-block button{
     padding: 10px;
     margin-top: 10px;
 }
 
 .pressed{
     filter: brightness(70%);
+}
+
+#storages-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#storages-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.storage-info {
+    margin-top: 10px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.storage-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.storage-info label {
+    display: block;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.storage-info label:first-child {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.storage-info label:last-child {
+    margin-bottom: 0;
+    color: #555;
+    font-size: 13px;
 }
