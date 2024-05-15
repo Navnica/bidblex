@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import FileResponse
 from .models import Product
+from django.contrib.staticfiles import finders
 
 
 def index(request):
@@ -13,13 +14,14 @@ def product(request, pk):
 
 
 def img(request, filename):
-    return FileResponse(open(f'store/static/img/{filename}', 'rb'))
+    file_path = finders.find(f'img/{filename}')
+    return FileResponse(open(file_path, 'rb'))
 
 
 def docs(request, filename):
-    return FileResponse(open(f'store/static/docs/{filename}', 'rb'))
+    file_path = finders.find(f'docs/{filename}')
+    return FileResponse(open(file_path, 'rb'))
 
 
 def login(request):
     return render(request, 'store/login.html')
-
