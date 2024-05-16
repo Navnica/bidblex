@@ -13,6 +13,7 @@ class Product(models.Model):
     price = models.FloatField()
     description = models.TextField()
     contact_data = models.ForeignKey(ContactData, on_delete=models.CASCADE, related_name='products')
+    manufacturer = models.CharField(max_length=100, default='')
 
     def __str__(self):
         return self.name

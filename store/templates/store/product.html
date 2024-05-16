@@ -30,7 +30,7 @@
                 <div class="product-data-block">
                     <label class="title">Производитель</label>
                     <div class="text-block">
-                        {{ product.contact_data.name }}
+                        {{ product.manufacturer }}
                     </div>
 
                 </div>
@@ -79,6 +79,14 @@
                                 </div>
                             {% endfor %}
                         </ul>
+                    </div>
+                </div>
+                <div class="contact-data-block">
+                    <label class="title">Контактные данные</label>
+                    <div id="contact-data-info">
+                        <label>{{ product.contact_data.name }}</label>
+                        <label>{{ product.contact_data.phone }}</label>
+                        <label><a style="text-decoration: none" href="mailto:{{ product.contact_data.email }}">{{ product.contact_data.email }}</a></label>
                     </div>
                 </div>
             </div>

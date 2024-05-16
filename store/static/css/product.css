@@ -257,3 +257,23 @@ div.image-block, .contact-data{
     color: #555;
     font-size: 13px;
 }
+
+#contact-data-info {
+    width: 100%;
+    text-align: left;
+}
+
+#contact-data-info label{
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+#contact-data-info label:first-child{
+    font-weight: bold;
+}
+
+#contact-data-info label:first-child{
+    margin-top: 10px;
+
+}
