@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block links %}
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/index.css' %}">
 {% endblock %}
 
 {% block title %} Главная {% endblock %}
@@ -15,9 +15,9 @@
         {% for product in products %}
             <a class="product" href="{% url 'product' pk=product.pk %}">
                 {% with product.images.first as first_image %}
-                    {% if first_image %}
-                        <img src="{{ first_image.image }}" alt="Product Image">
-                    {% endif %}
+                    {% with file_name=first_image.image.name|cut:'store/static/store/img/' %}
+                        <img src="{% url 'img' filename=file_name %}" alt="">
+                    {% endwith %}
                 {% endwith %}
                 <div class="product-price">
                     {{ product.price }}₽

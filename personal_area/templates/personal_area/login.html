@@ -1,0 +1,12 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="login-form">
+        {{ login_form }}
+    </div>
+{% endblock %}

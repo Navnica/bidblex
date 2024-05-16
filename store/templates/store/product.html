@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block links %}
-    <link rel="stylesheet" href="{% static 'css/product.css' %}">
-    <script src="{% static 'js/product.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'store/css/product.css' %}">
+    <script src="{% static 'store/js/product.js' %}"></script>
 {% endblock %}
 
 {% block title %} {{ product.name }} {% endblock %}
@@ -20,7 +20,9 @@
                     <ul>
                         {% for img in product.images.all %}
                             <li>
-                                <img src="{{ img.image.url }}" alt="">
+                                {% with file_name=img.image.name|cut:'store/static/store/img/' %}
+                                    <img src="{% url 'img' filename=file_name %}" alt="">
+                                {% endwith %}
                             </li>
                         {% endfor %}
                     </ul>
@@ -45,9 +47,9 @@
                     <div class="doc-list">
                         <ul>
                             {% for doc in product.docs.all %}
-                                <a href="{{ doc.file.url }}">
-                                        {{ doc.name }}
-                                </a>
+                                {% with file_name=doc.file.name|cut:"store/static/store/docs/" %}
+                                    <a href="{% url 'docs' filename=file_name %}">{{ doc.name }}</a>
+                                {% endwith %}
                             {% endfor %}
                         </ul>
                         

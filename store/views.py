@@ -14,14 +14,10 @@ def product(request, pk):
 
 
 def img(request, filename):
-    file_path = finders.find(f'img/{filename}')
+    file_path = finders.find(f'store/img/{filename}')
     return FileResponse(open(file_path, 'rb'))
 
 
 def docs(request, filename):
-    file_path = finders.find(f'docs/{filename}')
+    file_path = finders.find(f'store/docs/{filename}')
     return FileResponse(open(file_path, 'rb'))
-
-
-def login(request):
-    return render(request, 'store/login.html')

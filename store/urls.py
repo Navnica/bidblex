@@ -6,5 +6,4 @@ urlpatterns = [
     path('product/<int:pk>/', views.product, name='product'),
     path('store/static/img/<str:filename>/', views.img, name='img'),
     path('store/static/docs/<str:filename>/', views.docs, name='docs'),
-    path('login/', views.login, name='login')
 ]

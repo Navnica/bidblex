@@ -22,12 +22,12 @@ class Product(models.Model):
 class ProductDoc(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='docs')
     name = models.CharField(max_length=100)
-    file = models.FileField(upload_to='store/static/docs')
+    file = models.FileField(upload_to='store/static/store/docs')
 
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='store/static/img/')
+    image = models.ImageField(upload_to='store/static/store/img/')
 
 
 class Storage(models.Model):
