@@ -2,11 +2,22 @@
 {% load static %}
 
 {% block links %}
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'personal_area/css/login.css' %}">
 {% endblock %}
 
 {% block content %}
-    <div id="login-form">
-        {{ login_form }}
-    </div>
+    <form method="post">
+        <div id="login-form">
+            <label>
+                Авторизация
+            </label>
+            <div id="text-field-block">
+                {{ login_form }}
+            </div>
+            <div id="button-block">
+                <button type="submit">Войти</button>
+                <a href="{% url 'register' %}">Регистрация</a>
+            </div>
+        </div>
+    </form>
 {% endblock %}
