@@ -37,12 +37,6 @@ form{
     #text-field-block{
         width: 100%;
         flex-direction: column;
-        div, input{
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
             input{
                 margin-bottom: 20px;
                 width: 100%;
@@ -77,7 +71,6 @@ form{
                 border-color: cornflowerblue;
 
             }
-        }
     }
 
     #button-block{
