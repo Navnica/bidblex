@@ -1,22 +1,16 @@
-{% extends 'store/base.html' %}
-{% load static %}
-
-{% block links %}
-    <link rel="stylesheet" href="{% static 'personal_area/css/login.css' %}">
-{% endblock %}
+{% extends 'personal_area/login.html' %}
 
 {% block content %}
     <form method="post">
         <div id="form">
             <label>
-                Авторизация
+                Регистрация
             </label>
             <div id="text-field-block">
                 {{ form }}
             </div>
             <div id="button-block">
                 <button type="submit">Войти</button>
-                <a href="{% url 'register' %}">Регистрация</a>
             </div>
         </div>
     </form>

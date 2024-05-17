@@ -1,11 +1,22 @@
 from django.shortcuts import render
-from .forms import LoginForm
-from django.http import HttpResponse
+from .forms import LoginForm, RegisterForm
 
 
 def login(request):
-    return render(request, 'personal_area/login.html', {'login_form': LoginForm()})
+    return render(
+        request=request,
+        template_name='personal_area/login.html',
+        context={
+            'form': LoginForm()
+        }
+    )
 
 
 def register(request):
-    return HttpResponse('<center>Здесь будет регистрация</center>')
+    return render(
+        request=request,
+        template_name='personal_area/register.html',
+        context={
+            'form': RegisterForm()
+        }
+    )
