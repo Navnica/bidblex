@@ -2,11 +2,11 @@ from django import forms
 
 
 class LoginForm(forms.Form):
-    login = forms.CharField(
+    username = forms.CharField(
         widget=forms.TextInput(
             attrs={
                 'class': 'text-field',
-                'placeholder': 'Логин',
+                'placeholder': 'Имя пользователя',
                 'value': ''
             }
         ),
@@ -26,11 +26,22 @@ class LoginForm(forms.Form):
 
 
 class RegisterForm(forms.Form):
-    login = forms.CharField(
+    username = forms.CharField(
         widget=forms.TextInput(
             attrs={
                 'class': 'text-field',
-                'placeholder': 'Логин',
+                'placeholder': 'Имя пользователя',
+                'value': ''
+            }
+        ),
+        label=False
+    )
+
+    email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={
+                'class': 'text-field',
+                'placeholder': 'E-Mail',
                 'value': ''
             }
         ),

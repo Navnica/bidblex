@@ -7,17 +7,24 @@
 
 {% block content %}
     <form method="post">
+        {% csrf_token %}
         <div id="form">
             <label>
                 Авторизация
             </label>
             <div id="text-field-block">
                 {{ form }}
+                {% if error %}
+                    <div id="error-block">
+                        <label>{{ error }}</label>
+                    </div>
+                {% endif %}
             </div>
             <div id="button-block">
                 <button type="submit">Войти</button>
                 <a href="{% url 'register' %}">Регистрация</a>
             </div>
+
         </div>
     </form>
 {% endblock %}

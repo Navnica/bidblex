@@ -68,6 +68,22 @@ form{
             transform: translateY(-5px);
             border-color: cornflowerblue;
         }
+
+         #error-block {
+             background-color: #f8d7da;
+             border: 1px solid #f5c2c7;
+             color: #721c24;
+             padding: 10px;
+             border-radius: 15px;
+             margin-top: 10px;
+             font-family: 'Roboto', sans-serif;
+             font-size: 14px;
+             text-align: center;
+
+             label{
+                 margin-top: 0;
+             }
+        }
     }
 
     #button-block{

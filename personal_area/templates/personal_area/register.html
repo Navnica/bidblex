@@ -1,13 +1,21 @@
 {% extends 'personal_area/login.html' %}
+{% load static %}
 
 {% block content %}
+    <script src="{% static 'personal_area/js/register.js' %}"></script>
     <form method="post">
+        {% csrf_token %}
         <div id="form">
             <label>
                 Регистрация
             </label>
             <div id="text-field-block">
                 {{ form }}
+                {% if error %}
+                    <div id="error-block">
+                        <label>{{ error }}</label>
+                    </div>
+                {% endif %}
             </div>
             <div id="button-block">
                 <button type="submit">Войти</button>
