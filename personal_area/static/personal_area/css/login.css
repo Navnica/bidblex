@@ -32,6 +32,7 @@ div#form {
     #text-field-block{
         width: 100%;
         flex-direction: column;
+
         input{
             margin-bottom: 20px;
             width: 100%;

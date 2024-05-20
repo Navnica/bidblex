@@ -77,4 +77,7 @@ def register(request):
 
 @login_required
 def personal_area(request):
-    return HttpResponse(request.user.username)
+    return render(
+        request=request,
+        template_name='personal_area/personal_area.html'
+    )
