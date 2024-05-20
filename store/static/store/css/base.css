@@ -49,10 +49,9 @@ a {
 
 div.content {
     margin-top: 20px;
-    height: 90%;
 }
 
-body {
+html{
     background: linear-gradient(to bottom, #e0f3ff, #ffffff);
     font-family: "Roboto", sans-serif;
 }
