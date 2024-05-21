@@ -28,6 +28,8 @@
             </span>
         </nav>
         <div class="content">
+            {% block side_menu %}
+            {% endblock %}
             {% block content %}
             {% endblock %}
         </div>

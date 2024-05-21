@@ -1,0 +1,24 @@
+{% extends 'personal_area/personal_area_base.html' %}
+{% load static %}
+
+{% block links %} 
+	<link rel="stylesheet" href="{% static 'personal_area/css/products.css' %}">
+	<link rel="stylesheet" href="{% static 'personal_area/css/personal_area.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="page-block">
+	<div class="page">
+		<div class="title">
+			<label>Ваши продукты</label>
+		</div>
+    <div id="product-list">
+      <ul>
+          {% for product in request.user.products.all %}
+            {{ product.name }}
+          {% endfor %}
+      </ul>
+    </div>
+	</div>
+</div>
+{% endblock %}

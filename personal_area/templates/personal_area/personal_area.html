@@ -1,4 +1,4 @@
-{% extends 'store/base.html' %}
+{% extends 'personal_area/personal_area_base.html' %}
 {% load static %}
 
 {% block links %}
@@ -7,29 +7,6 @@
 {% endblock %}
 
 {% block content %}
-    <nav id="side-menu">
-        <ul>
-            <li id="notification">
-                <img alt="Уведомления" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAACv0lEQVR4nO2aTUtVQRjH/7qwhVqrciHWqoz6AgpSEb2ZRtteKMFKWuiHEFyFtmnXC4QEUQh9hcjSciNF4qJF6VWKS4VpgQqmPDADl4dz5uV4z8w5584P/iuf8Tw/7jlzZuZeIBAIBAIBSRuACQCrIq8AtKPAsr8AbLP8Fn8rHBMRsjIvUUBWFcJ/UDA6FbIyVJNr6gDcBDBnICtDtTfE2FxxBMC0hSjPFIDDyAnnxMybVLZy9j6DjHMKwHoVZGU2AJxFRmkHsFJFWZkVV4uT8wAWASwD6NXU1gOYTEFWZlJcQ0Wv6LUM4LKtbBOAnxUXJHEV/SnKyvRpeihV1FLvjTbCd9jFvipq6RXy2YHwJ03P31j9LRth/koZU9SecCAr06XoY4zVvjOVbQHwnw0+pqgfcSg8rOjjKKslhwMmwtfZwFlN/RuHwq81vXxk9VdNhJ+wQfcsn500o5pLiFFW/8hEeIYN6tHU/3Mo/FfTyyVW/95EuGzx/MKhrIyK46z2h4nwBhvUnCPhZla7nkR4b46E9yURLtfaLT1jOWllSTjRpPXY4rVU70G4zuK19NBE+JrFwoNPEi5CGxvThceVai8t2zwItxo+v1sA9sOQKcPNw0kPwrRZieI+q3sLC26zwbTXjOKuB+GBmF6WWR3t0RMfACzE1D3zIDyexgEA0S1E6R9dQPQM/d2D8FLMcc9F0etCTL+75rQHWRk6HXXOuEfhuNs6NQ4C2PQoTNc+5FL4qUdZGTqocEJnxMLER2hh0ZG2bBOA+QzIynwx2L4mhhbtLzIgyfM8ra9XRzMgF5cH1RTtES/77YynJBZLu6aUARnT6L4DM6LmhLtzIr2Y1ho6EAjUFmsWE08hfoL4wUKYfnmQe4YshAdRAPaIw3ydLNU0oCC0aqRnFQfsuaVB3LLTYiJbEwf+g0X6ZAPwzA7QLzHO9/vcIgAAAABJRU5ErkJggg==">
-            </li>
-            <li id="profile">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB+0lEQVR4nO2Zu0oDQRSGB8VbYxGU7P9PIE2wiIVFfAoFL6DYWvkKWolaeOn0Fbw9hWhjb+fdwkobEY2XRrJycAURNcE5mYmyPxxYMrPZ/9s9c/bsrjGpUqVSU6lUarHWjpPcBnBM8kEi2d6SMZljGlEARgGckYx/CpkDYMQ0kJpIrlQz/kUsyb6hzZtfmv8IETZtHMy/p9RwEPOyGGvJ+RriolgstnoHSKpNrBHW2jHvAFIqtQBIbnoHAHCqBQDg2DsAybLiFSj/dYA77wAAThQBjrwDSG+jCLDuHeDPl9HS243MuRIBOAnWoUpX6QhQITlkQorksgPAommQdnrpF2dezIdvp98lXWUtayKZEzZtqjxSjklvI7U9udlJHJLckLGGfaRMleo/K5fLdQCYB3BO8kWxB4o/xYscA8CcHFPNPMn9OpqOv4n9fD7f7gwgZz6A+TiJWQ2A81AAAE6dAeqc83G1NaEBUAkIUHEGAHAbMIVuNAB2AwLsaABMBUyhCWeAQqHQFqIS4e1lV7PRUDab7ZV3Nx4BytbaPqMpa+0ggCcP5h+ttQOq5j9A9NU5nS6jKOo39VQmk+kEsEDyXtH4vbQs8t/Gl6Io6gYwA+DAYaEeAJgG0GVCimQPyUmSawD2ks+q1wCeJUheyW8yRnI1mdsT1HSqVP9Er+562zDStuPrAAAAAElFTkSuQmCC" alt="">
-            </li>
-            <li id="product">
-                <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABHUlEQVR4nO2WMUpDQRRFDyhaRVyD4CosXYqtfRpJWrfgNuxSx0pwITb2YnHDByMymPyfmcE3Q+6BqR7J3PPuBALGmBpcAa+AMs6WnM++AddVDIAb4D0zSKmIgA/gtlTiDvgsCFFDRMAXcJ8jcAI8Fl5eU0Tf5wk4nSoxA54rXVxbRMAKuMxpx0SjTs4o0QFlkYToTcuNJJRu6gE4YzfDbNFDI7MJd1z0ILIAzvd8/zBb9iCifzqjRAeURRKiNy03khC9abmRhOhNy40kRG9abiQhetPqrZHhj+M8Y6aWRIagW+YHzNSSyO+gaeDlnllzImmQQ2eyCG6Eo3haqvQb20l4gD+wiBp4Omr9aVmEY23kpYGQGjnrKSLGGH7YABkQA4I6Y8MeAAAAAElFTkSuQmCC">
-            </li>
-            <li id="storage">
-                <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7UlEQVR4nO2WQQrCMBBFn+fJBVx4OC/gwgspWFxZT6AL8SIjYkEoRsY2Jqn+B3/TdvF/ZjIdEGJSzIA5sAIunVbds/u76gnAEjgBFtEVWAOL2kIFh/lqQ4UR5ouHCp35c0Lz2UKFjOaTh6rBvI0Nta3ArDm1eRfEJqYopY2ZgvQofcKmivQofcKmivQYNOq+jKUev6UwBUEV+a3WOjpGaDuFIOaUgqCKoNYy3ZEnmlqm8fugdfxDDvgxLY382dK4d7RQM+L7bEE+3amG7mCmIKgiqLXQHXmNphYav2T/j1iFitJUYM6c2sVjCEEqbixi60Iyn22OAAAAAElFTkSuQmCC">
-            </li>
-        </ul>
-
-        <div id="logout-button">
-            <a href="{% url 'logout' %}">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABfUlEQVR4nO2ZzUpDMRCFA/UNFJfWRR9ACi4Vax/IhYg7l+JarHbnc7m40OpCEcUfsCIUPgmkbVAuFj0TGskHl+zmzMmdpNO5zhUKhcJCA6wA58ANMEaDj3MN9IGmZfId4A5bXoFdq523Tn7CPbCqNnAxDQ/D8DYaotgNYBsYRBo9RexYxNfohI40+EyjG2kM1MHjAyvZ+Zo38RE0RurgU6SBv+scA+9+zdKAGcXAnAAtYN+vuZ6BKsg8Au2cDWhNECEJWK/TDolrTaQy4AE2gIdI8gnYdLkYMDGR2oDcxE8GwvV3AByKn1Pg7c9nYg4D8e1hTVUM1JTQEXAifi5Dc2dbQtkfYjXkfI1i9ENW/foGWJBWomXS5qZq5lKBVTudCgz/0OwBV351OQKMTMYdqeAfjFXGCQZbS5aDrXi0uCUNPtPYsRwtfh3udsXDXZ+86XB3PczuU/AMrEkNBBN+12+Nk3/xOvLkIxPLwFkoI+UnJl8+PZOdLxQKBZeKT0N/DYy3hFMeAAAAAElFTkSuQmCC">
-            </a>
-        </div>
-    </nav>
-
     <div id="page-block">
         <div id="profile" class="page">
             <div class="title">
@@ -76,5 +53,4 @@
                 {% endif %}
         </div>
     </div>
-
 {% endblock %}

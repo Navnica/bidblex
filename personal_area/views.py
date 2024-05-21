@@ -107,3 +107,18 @@ def personal_area(request):
 def logout(request):
     django_logout(request)
     return redirect(reverse('login'))
+
+
+@login_required
+def products(request):
+    return render(
+        request=request,
+        template_name='personal_area/products.html',
+        context={}
+     )
+
+
+@login_required
+def storages(request):
+    return redirect(reverse('personal_area'))
+
