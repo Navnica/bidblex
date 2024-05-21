@@ -1,20 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const sideMenuButtons = document.querySelectorAll("#side-menu ul li");
-    const pages = {}
-    document.querySelectorAll("#page-block .page").forEach(page => {
-        pages[page.id] = page;
-    });
+    const button = document.getElementById("contact-data-add-button");
+    const form = document.getElementById("contact-data-form");
 
-    sideMenuButtons.forEach(button => {
-        button.addEventListener("click", function() {
-            for (let pageKey in pages) {
-                if(pageKey !== button.id){
-                    pages[pageKey].classList.add("hidden")
-                }
-                else{
-                    pages[pageKey].classList.remove("hidden")
-                }
-            }
-        })
+    button.addEventListener("click", function (){
+        form.classList.remove("hidden")
+        button.classList.add("hidden")
     })
+
 })

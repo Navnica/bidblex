@@ -22,28 +22,58 @@
                 <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7UlEQVR4nO2WQQrCMBBFn+fJBVx4OC/gwgspWFxZT6AL8SIjYkEoRsY2Jqn+B3/TdvF/ZjIdEGJSzIA5sAIunVbds/u76gnAEjgBFtEVWAOL2kIFh/lqQ4UR5ouHCp35c0Lz2UKFjOaTh6rBvI0Nta3ArDm1eRfEJqYopY2ZgvQofcKmivQofcKmivQYNOq+jKUev6UwBUEV+a3WOjpGaDuFIOaUgqCKoNYy3ZEnmlqm8fugdfxDDvgxLY382dK4d7RQM+L7bEE+3amG7mCmIKgiqLXQHXmNphYav2T/j1iFitJUYM6c2sVjCEEqbixi60Iyn22OAAAAAElFTkSuQmCC">
             </li>
         </ul>
+
+        <div id="logout-button">
+            <a href="{% url 'logout' %}">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABfUlEQVR4nO2ZzUpDMRCFA/UNFJfWRR9ACi4Vax/IhYg7l+JarHbnc7m40OpCEcUfsCIUPgmkbVAuFj0TGskHl+zmzMmdpNO5zhUKhcJCA6wA58ANMEaDj3MN9IGmZfId4A5bXoFdq523Tn7CPbCqNnAxDQ/D8DYaotgNYBsYRBo9RexYxNfohI40+EyjG2kM1MHjAyvZ+Zo38RE0RurgU6SBv+scA+9+zdKAGcXAnAAtYN+vuZ6BKsg8Au2cDWhNECEJWK/TDolrTaQy4AE2gIdI8gnYdLkYMDGR2oDcxE8GwvV3AByKn1Pg7c9nYg4D8e1hTVUM1JTQEXAifi5Dc2dbQtkfYjXkfI1i9ENW/foGWJBWomXS5qZq5lKBVTudCgz/0OwBV351OQKMTMYdqeAfjFXGCQZbS5aDrXi0uCUNPtPYsRwtfh3udsXDXZ+86XB3PczuU/AMrEkNBBN+12+Nk3/xOvLkIxPLwFkoI+UnJl8+PZOdLxQKBZeKT0N/DYy3hFMeAAAAAElFTkSuQmCC">
+            </a>
+        </div>
     </nav>
 
     <div id="page-block">
-        <div id="notification" class="page">
-            <div class="title">
-                <label>Уведомления</label>
-            </div>
-        </div>
-        <div id="profile" class="page hidden">
+        <div id="profile" class="page">
             <div class="title">
                 <label>Мой профиль</label>
             </div>
-        </div>
-        <div id="product" class="page hidden">
-            <div class="title">
-                <label>Товары</label>
+            <div>
+                <input type="text" value="{{ request.user.username }}" readonly>
+                <label>Ваш никнейм</label>
+            </div>
+            <div>
+                <input type="text" value="{{ request.user.email }}" readonly>
+                <label>Ваша почта</label>
+            </div>
+            <div>
+                <input type="text" value="{{ request.user.role.name }}" readonly>
+                <label>Уровень доступа</label>
             </div>
         </div>
-        <div id="storage" class="page hidden">
+        <div id="contact-data" class="page">
             <div class="title">
-                <label>Склады</label>
+                <label>Контактные данные</label>
             </div>
+                {% if request.user.contact_datas.all|length == 0 %}
+                    <form id="contact-data-form" class="hidden" method="post">
+                        {% csrf_token %}
+                        {{ contact_data_form }}
+                        <button type="submit">Сохранить</button>
+                    </form>
+                    <button id="contact-data-add-button">Добавить</button>
+
+                {% else %}
+                    <div>
+                        <input type="text" value="{{ request.user.contact_datas.first.name }}" readonly>
+                        <label>ФИО</label>
+                    </div>
+                    <div>
+                        <input type="text" value="{{ request.user.contact_datas.first.phone }}" readonly>
+                        <label>Номер телефона</label>
+                    </div>
+                    <div>
+                        <input type="text" value="{{ request.user.contact_datas.first.email }}" readonly>
+                        <label>Почта</label>
+                    </div>
+                {% endif %}
         </div>
     </div>
 

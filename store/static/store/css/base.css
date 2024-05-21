@@ -55,3 +55,10 @@ html{
     background: linear-gradient(to bottom, #e0f3ff, #ffffff);
     font-family: "Roboto", sans-serif;
 }
+
+@media (max-width: 800px) {
+    nav span.site-menu a {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}

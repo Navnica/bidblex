@@ -1,13 +1,17 @@
 from django.db import IntegrityError
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .forms import LoginForm, RegisterForm
-from django.contrib.auth.models import User
-from django.contrib.auth import login as django_login, authenticate
+from .forms import LoginForm, RegisterForm, ContactDataForm
+from store.models import User, ContactData
+from django.contrib.auth import login as django_login, authenticate, logout as django_logout
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect
+from django.urls import reverse
 
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect(reverse('personal_area'))
+
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -77,7 +81,29 @@ def register(request):
 
 @login_required
 def personal_area(request):
+    if request.method == 'POST':
+        form = ContactDataForm(request.POST)
+
+        if form.is_valid():
+            new_contact_data = ContactData.objects.create(
+                user=request.user,
+                name=form.cleaned_data['name'],
+                email=form.cleaned_data['email'],
+                phone=form.cleaned_data['phone']
+            )
+
+            new_contact_data.save()
+
+            return redirect(reverse('personal_area'))
+
     return render(
         request=request,
-        template_name='personal_area/personal_area.html'
+        template_name='personal_area/personal_area.html',
+        context={'contact_data_form': ContactDataForm()}
     )
+
+
+@login_required
+def logout(request):
+    django_logout(request)
+    return redirect(reverse('login'))

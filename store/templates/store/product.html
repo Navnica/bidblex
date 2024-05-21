@@ -86,9 +86,9 @@
                 <div class="contact-data-block">
                     <label class="title">Контактные данные</label>
                     <div id="contact-data-info">
-                        <label>{{ product.contact_data.name }}</label>
-                        <label>{{ product.contact_data.phone }}</label>
-                        <label><a style="text-decoration: none" href="mailto:{{ product.contact_data.email }}">{{ product.contact_data.email }}</a></label>
+                        <label>{{ product.user.contact_datas.first.name }}</label>
+                        <label>{{ product.user.contact_datas.first.phone }}</label>
+                        <label><a style="text-decoration: none" href="mailto:{{ product.user.contact_datas.first.email }}">{{ product.user.contact_datas.first.email }}</a></label>
                     </div>
                 </div>
             </div>
